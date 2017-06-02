@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "UTFiller extension",
+    "description": "Faça login na rede da UTFPR automaticamente.",
+    "version": "1.0",
+    "browser_action": {
+        "default_title": "UTFiller",
+        "default_popup": "config.html"
+    },
+    "permissions": [
+        "https://*/*",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://1.1.1.1/fs/*"],
+            "js":      ["action.js"],
+            "run_at":  "document_end"
+        }
+    ]
+}
