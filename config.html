@@ -7,17 +7,75 @@
                 height: 200px;
                 width: 400px;
             }
+            .label {
+                width: 60px;
+                display: inline-block;
+            }
+            form > div {
+                margin-bottom: 4px;
+            }
         </style>
     </head>
 
     <body>
-        <h1>UTFiller config</h1>
+        <h1>UTFPR Login</h1>
 
-        <button
-            type="button"
-            name="reset"
-            style="display: none;"
-        >Resetar</button>
+        <div id="loading">
+            <p>Carregando...</p>
+        </div>
+
+        <!-- config state -->
+        <div id="config" style="display: none;">
+            <form>
+                <div>
+                    <div class="label">
+                        <label for="user">Usuário:</label>
+                    </div>
+                    <input type="text" id="user" name="user" required="true">
+                </div>
+
+                <div>
+                    <div class="label">
+                        <label for="password">Senha:</label>
+                    </div>
+                    <input type="password" id="password" name="password" required="true">
+                </div>
+
+                <button
+                    type="button"
+                    name="cancel"
+                >Cancelar</button>
+
+                <button
+                    type="submit"
+                    name="save"
+                >Salvar</button>
+            </form>
+        </div>
+
+        <!-- view state -->
+        <div id="show" style="display: none;">
+            <p>
+                <strong>Usuário:</strong>
+                <span id="view-user"></span>
+            </p>
+
+            <p>
+                <strong>Senha:</strong>
+                <span>******</span>
+            </p>
+
+            <button
+                type="button"
+                name="update"
+            >Alterar</button>
+
+            <button
+                type="button"
+                name="forget"
+            >Esquecer dados</button>
+        </div>
+
         <script src="config.js"></script>
     </body>
 </html>
