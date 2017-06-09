@@ -1,0 +1,148 @@
+
+<!-- saved from url=(0173)https://1.1.1.1/fs/customwebauth/login.html?switch_url=https://1.1.1.1/login.html&ap_mac=64:ae:0c:87:e0:00&client_mac=30:59:b7:02:80:ce&wlan=UTFPRWEB&redirect=crbonilha.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta http-equiv="Pragma" content="no-cache">
+    
+    <title>Bem Vindo a Rede Wireless da UTFPR</title>
+    <script>
+
+
+	function submitAction(){
+      var link = document.location.href;
+      var searchString = "redirect=";
+      var equalIndex = link.indexOf(searchString);
+      var redirectUrl = "";
+
+      if (document.forms[0].action == "") {
+      var url = window.location.href;
+      var args = new Object();
+      var query = location.search.substring(1);
+      var pairs = query.split("&");
+          for(var i=0;i<pairs.length;i++){
+              var pos = pairs[i].indexOf('=');
+              if(pos == -1) continue;
+              var argname = pairs[i].substring(0,pos);
+              var value = pairs[i].substring(pos+1);
+              args[argname] = unescape(value);
+          }
+          document.forms[0].action = args.switch_url;       
+      }       
+      if(equalIndex >= 0) {
+            equalIndex += searchString.length;
+            redirectUrl = "";
+            redirectUrl += link.substring(equalIndex);
+      }
+      if(redirectUrl.length > 255)
+      redirectUrl = redirectUrl.substring(0,255);
+      document.forms[0].redirect_url.value = redirectUrl;
+      document.forms[0].buttonClicked.value = 4;
+      document.forms[0].submit();
+}
+
+
+function change_case()
+{
+// This function changes username input from upper-case to lower-case
+// If the radius-server used cannot perform this function, 
+// the WLC will:
+document.form1.username.value=document.form1.username.value.toLowerCase();
+}
+
+function loadAction(){
+     var url = window.location.href;
+     var args = new Object();
+     var query = location.search.substring(1);
+     var pairs = query.split("&");
+     for(var i=0;i<pairs.length;i++){
+          var pos = pairs[i].indexOf('=');
+          if(pos == -1) continue;
+          var argname = pairs[i].substring(0,pos);
+          var value = pairs[i].substring(pos+1);
+          args[argname] = unescape(value);
+     }
+
+
+     document.forms[0].action = args.switch_url;
+
+     // This is the status code returned from webauth login action
+     // Any value of status code from 1 to 5 is error condition and user
+     // should be shown error as below or modify the message as it suits
+     // the customer
+
+     if(args.statusCode == 1){
+        alert("You are already logged in. No further action is required on your part.");
+     }
+     else if(args.statusCode == 2){
+        alert("You are not configured to authenticate against web portal. No further action is required on your part.");
+     }
+     else if(args.statusCode == 3){
+        alert("The username specified cannot be used at this time. Perhaps the user is already logged into the system?");
+     }
+     else if(args.statusCode == 4){
+        alert("Wrong username and password. Please try again.");
+     }
+     else if(args.statusCode == 5){
+        alert("The User Name and Password combination you have entered is invalid.  Please try again.");
+     }
+}
+
+</script>
+
+</head><body><div id="fundo" align="center">
+		<img src="./Bem Vindo a Rede Wireless da UTFPR_files/gov_hdr1.png" alt="" usemap="#Map">
+
+		<map name="Map" id="Map">
+			<area shape="rect" alt="" coords="652,3,716,13" href="http://www.brasil.gov.br/" onclick="window.open(this.href,&quot;" _blank'")="" ;return="" false="" ;'="">
+		</map>
+		<div id="barrautfpr" align="center">
+			<a href="http://www.utfpr.edu.br/" onclick="window.open(this.href,&quot;" _blank'");return="" false;'=""><img class="logoutfpr" alt="" src="./Bem Vindo a Rede Wireless da UTFPR_files/logout.png"></a>
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tbody><tr> <td>&nbsp;</td></tr>
+<tr align="center"> <td colspan="2"><font size="4" color="#000000" face="arial">Bem-vindo à&nbsp; rede sem fio da UTFPR.<p></p></font></td></tr>
+
+<tr align="center"> <td colspan="2"><font size="4" color="#000000" face="arial">UTFPRWEB - Instruções de Acesso<p></p></font></td></tr>
+<tr align="left"> <td colspan="2"><font size="3" color="#000000" face="arial">Você deve se conectar conforme seu perfil<p></p></font></td></tr>
+<tr align="left"> <td colspan="2"><font size="3" color="#000000" face="arial"><b>Servidor</b><br>Usuário: login do e-mail<br>Senha: senha do e-mail Institucional<p></p></font></td></tr>
+<tr align="left"> <td colspan="2"><font size="3" color="#000000" face="arial"><b>Aluno</b><br>Usuário: a (minúscula) e número de matrícula Ex. a470775<br>Senha: senha do Sistema Acadêmico<p></p></font></td></tr>
+<tr align="left"> <td colspan="2"><font size="3" color="#000000" face="arial"><b>Visitante</b><br>Usuário e senha fornecidos pela Coordenadoria de TI do seu Câmpus<p></p></font></td></tr>
+
+<tr align="center">
+
+
+  <form name="form1" method="post"></form> <input name="buttonClicked" size="16" maxlength="15" value="0" type="hidden"> <input name="redirect_url" size="255" maxlength="255" value="" type="hidden"> <input name="err_flag" size="16" maxlength="15" value="0" type="hidden">
+
+
+<td colspan="2"> Usuário &nbsp;&nbsp;&nbsp;<input type="TEXT" name="username" size="25" maxlength="63" value="">
+
+</td>
+
+</tr>
+
+<tr align="center">
+
+<td colspan="2"> Senha &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" size="25" maxlength="24">
+<input type="checkbox" name="remember">
+
+</td>
+
+</tr>
+
+<tr align="center">
+
+<td colspan="2"><input type="button" name="Submit" value="Enviar" class="button" onclick="submitAction();">
+
+</td>
+
+</tr>
+
+
+<tr align="center"> <td colspan="2"><font size="3" color="#000000"><a href="https://1.1.1.1/fs/customwebauth/imagens/rec.pdf"><br>Recomendações de uso<p></p></a></font></td></tr>
+
+<tr><td colspan="2"><font size="3" color="#000000" face="arial"><b>UTFiller</b><br>Olá. Abra a extensão do UTFiller para configurar seu login e senha,<br>assim o login será feito automaticamente.<p></p></font></td></tr></tbody></table>
+
+  
+  
+  
+
+</div></div></body></html>

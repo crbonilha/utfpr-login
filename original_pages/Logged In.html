@@ -1,0 +1,96 @@
+
+<!-- saved from url=(0026)https://1.1.1.1/login.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style>
+<!--
+h1 {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	color: #787a7f;
+	font-size: 19px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #336699;
+	padding: 10px 5px 0px 0px;
+}
+td.caption {
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	padding: 2px;
+}
+input.button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #c9cbd4;
+	color: #333333;
+	width: 80px;
+}
+-->
+</style>
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<title>Logged In</title>
+</head>
+<body bgcolor="#DADCE5" topmargin="50" marginheight="50">
+<form method="post" action="https://1.1.1.1/login_success.html">
+<input type="hidden" name="redirect_url" size="255" maxlength="255" value="outlook.com/">
+<input type="hidden" name="logoutPageName" size="255" maxlength="255" value="logout.html">
+</form>
+
+<noscript>
+	&lt;meta HTTP-EQUIV="REFRESH" content="0; url=outlook.com/"&gt;
+</noscript>
+<script>
+var logoutPage = document.forms[0].logoutPageName.value;
+function getLogout()
+{
+   parent.location.href = logoutPage;
+}
+</script>
+  <div align="center">
+    <h1>Web Authentication</h1>
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td align="center">Login Successful</td>
+      </tr>
+      <tr>
+        <td align="center" class="caption" width="340"> You can now use all our regular network services over the wireless network.<br>
+          Keep the small logout window around so that you can logout successfully when done. Else you can always goto following url to logout:
+          
+           
+	        <a href="javascript:getLogout();">https://1.1.1.1/<script> document.write(logoutPage) </script>logout.html </a></td>
+           
+          
+      </tr>
+      <tr>
+        <td class="caption">&nbsp;</td>
+
+      </tr>
+<script>
+/* Note: Value 'ILLEGAL_ACCESS' means this page has been attemted to access directly rather than a
+    redirect from login page. So in that case better redirect user to login page again */
+    if(document.forms[0].redirect_url.value != "ILLEGAL_ACCESS"){
+
+        var editWindow = window.open(logoutPage,"AirespaceWebAuthLogoutPage","left=0 top=0 menubar=yes,scrollbars=yes,toolbar=yes,width=310,height=250,status=yes,resizable=yes");
+
+        if(document.forms[0].redirect_url.value != ""){
+            var redirurl = document.forms[0].redirect_url.value;
+            var searchString = "http";
+            var equalIndex = redirurl.indexOf(searchString);
+            if(equalIndex != 0) {
+                redirurl = "http://" + redirurl;
+            }
+            window.location.href = redirurl;
+        }
+     }
+     else
+       window.location.href = "login.html";
+</script></tbody></table></div></body></html>
